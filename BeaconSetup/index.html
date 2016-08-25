@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <title>Beacon Setup - Francke AudioGuide-v2 Docs</title>
+  
+
+  <link rel="shortcut icon" href="../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Beacon Setup";
+    var mkdocs_page_input_path = "BeaconSetup.md";
+    var mkdocs_page_url = "/BeaconSetup/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script>
+  <script src="../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Francke AudioGuide-v2 Docs</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="..">Home</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../app/">App</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../data/">Data</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Beacon Setup</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#setup-ibeacon">Setup iBeacon</a></li>
+                
+                    <li><a class="toctree-l4" href="#hardware-initialisieren">Hardware Initialisieren</a></li>
+                
+                    <li><a class="toctree-l4" href="#mit-realkit-ios">mit Realkit (iOS)</a></li>
+                
+                    <li><a class="toctree-l4" href="#mit-realkit-android">mit Realkit (android)</a></li>
+                
+                    <li><a class="toctree-l4" href="#mit-pluslabbeacon-android">Mit PluslabBeacon (android)</a></li>
+                
+            
+            </ul>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../deploy/">How To Deploy</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../how_to_docs/">How To Docs</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../BeaconScan&Sort/">Beacon Scan&Sort</a>
+        
+    </li>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Francke AudioGuide-v2 Docs</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Beacon Setup</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="setup-ibeacon">Setup iBeacon</h1>
+<p>Um ein neues iBeacon von Bytereal zu hochfahren und initialisieren, bracht man hauptsächlich zwei Schritten: Hardware initialisieren und mit App (Entweder Realkit oder Pluslabbeacon) die ansprechende Parameter einzustellen.</p>
+<h2 id="hardware-initialisieren">Hardware Initialisieren</h2>
+<ol>
+<li>Schraub das Gehäuse von dem iBeacon auseinandr.</li>
+<li>Stecken Sie die Batterie (CR2477) ein.</li>
+<li>Schalten Sie die klein Schalter von "OFF" zu "ON"</li>
+<li>Legen Sie die Platinen wieder in dem Gehäuse ein.</li>
+<li>Schraube Sie die Teile von Gehäuse wieder zusammen.</li>
+</ol>
+<h2 id="mit-realkit-ios">mit Realkit (iOS)</h2>
+<h3 id="schritt-1-laden-app-von-app-store-herunter">Schritt 1: Laden App von App Store herunter</h3>
+<p>iOS version <strong>RealKit</strong> in Apple Appstore finden.
+<img alt="" src="../BeaconSetup/realkitIOS/DieApp.png" /></p>
+<h3 id="schritt-2-app-starten">Schritt 2: App starten</h3>
+<p>Realkit App starten.</p>
+<p>Man steht die Liste von aller Beacons (Bluetooth Geräten) in der Nähr.
+<img alt="" src="../BeaconSetup/realkitIOS/AvailableDeviceListe.png" /></p>
+<h3 id="schritt-3-mit-einem-beacon-verbinden">Schritt 3: Mit einem Beacon verbinden</h3>
+<p>Wählen eine gewünschte Gerät.</p>
+<p>Wenn Geheimzahl Popup Box auftaucht, drück "Nein". </p>
+<p>(Die default Geheimzahl ist "000000")</p>
+<p><img alt="" src="../BeaconSetup/realkitIOS/Geheimzahl.png" /></p>
+<h3 id="schritt-4-basic-einstellungenen">Schritt 4: Basic Einstellungenen</h3>
+<p>Die aufgelistete Artikel von hier entspricht nur für diese ausgewählte Gerät.</p>
+<p>Für ein neues Beacon soll man alle Basic Einstellungen durch einstellen.
+Wenn man einen Artikel einstellen möchte, soll man den entsprechenden Artikel drücken, und in dem entweder popup box oder einer neuen Seite die gewünschte parameter auswählen / eingeben.
+Für das Projekt von Franckesches Stiftungen:</p>
+<ul>
+<li>Broadcast Interval: 200ms</li>
+<li>major: nach Plannung</li>
+<li>minor: nach Plannung</li>
+<li>UUID: FDA50693-A4E2-4FB1-AFCF-C6EB07647825</li>
+</ul>
+<p><img alt="" src="../BeaconSetup/realkitIOS/BasicEinstellung.png" /></p>
+<h3 id="schritt-5-erweitere-einstellungen">Schritt 5: Erweitere Einstellungen</h3>
+<p>Die Bedienung von erweitere Einstellungen ist gleich wie Basic Einstellung.</p>
+<p>Für das Projekt von Franckesches Stiftung, nur die folgende Artikel eingestellt werden (Die andere bleibt default):</p>
+<table>
+<thead>
+<tr>
+<th>Artikel Name</th>
+<th>Wert</th>
+<th>Notiz</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Gerät Name</td>
+<td>'major'-'minor'</td>
+<td>z.B. 20-1, Max.16 Chars</td>
+<td></td>
+</tr>
+<tr>
+<td>Broadcast Interval</td>
+<td>200ms</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>major</td>
+<td>-</td>
+<td>nach Gruppen</td>
+<td></td>
+</tr>
+<tr>
+<td>minor</td>
+<td>-</td>
+<td>jede ist einzigartig</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Die default Werte von Bytereal Beacon:</p>
+<table>
+<thead>
+<tr>
+<th>Artikel Name</th>
+<th>Wert</th>
+<th>Notiz</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Major</td>
+<td>10</td>
+<td>range: 0 - 65535</td>
+<td></td>
+</tr>
+<tr>
+<td>Minor</td>
+<td>7</td>
+<td>range: 0 - 65535</td>
+<td></td>
+</tr>
+<tr>
+<td>iBeacon UUID</td>
+<td>FDA50693-A4E2-4FB1<br />-AFCF-C6EB07647825</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>broadcast Interval</td>
+<td>500ms</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>broadcast Name</td>
+<td>ByteReal</td>
+<td>Firma Name</td>
+<td></td>
+</tr>
+<tr>
+<td>Deploy Mode</td>
+<td>Nein</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Tx-Power</td>
+<td>0dbm / high</td>
+<td>Radio senden stärke</td>
+<td></td>
+</tr>
+<tr>
+<td>Measure Power</td>
+<td>-59db</td>
+<td>gleich zu 1 meter</td>
+<td></td>
+</tr>
+<tr>
+<td>LED</td>
+<td>Aus</td>
+<td>Wenn An, flacke das LED</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><img alt="" src="../BeaconSetup/realkitIOS/ErweitereEinstellung.png" /></p>
+<h3 id="schritt-6-erweitere-einstellungen2-reboot">Schritt 6: Erweitere Einstellungen2 &amp; Reboot</h3>
+<p>Wenn Alle Einstellungen schon durch eingestellt werden. Soll man "Speicher &amp; Restarten" Taste Drücken. Dadurch alle Einstellungen gültig sein werden. Dieses Gerät würde reboot mit neue eingestellte Parameteren.</p>
+<p>P.s. : Wenn "Deploy Modus" eingeschaltet wird, würde das Beacon nach Reboot nur "connectable" inner halb 3 Minuten, danach nicht mehr möglich. Wenn man das Gerät wieder einstellen möchte, soll man das Beacon rebooten.</p>
+<p><img alt="" src="../BeaconSetup/realkitIOS/ErweitereEinstellung2.png" /></p>
+<hr />
+<h2 id="mit-realkit-android">mit Realkit (android)</h2>
+<h3 id="schritt-1-app-install">Schritt 1: App Install</h3>
+<p>Suchen das Software Package <strong>realkit 2.8.3.apk</strong> aus, und in Android Gerät darauf drücken, um die Software erst zu installieren.</p>
+<h3 id="schritt-2-app-starten_1">Schritt 2: App starten</h3>
+<p>Wenn die App startet, seht man die Liste von alle Beacons (Bluetooth Gerät) in der Nähr.</p>
+<p><img alt="" src="../BeaconSetup/realkitAndroid/beaconlist.png" /></p>
+<h3 id="schritt-3-mit-einem-beacon-verbinden_1">Schritt 3: Mit einem Beacon verbinden</h3>
+<p>Suchen das gewünschte Gerät aus, und darauf drück.</p>
+<p>Es dauert eine kurze Weile bis das Beacon mit der Handy verbunden.</p>
+<p><img alt="" src="../BeaconSetup/realkitAndroid/verbindung.png" /></p>
+<h3 id="schritt-4-basic-einstellungen">Schritt 4: Basic Einstellungen</h3>
+<p>In der Basic Einstellung Tab soll man nur Major&amp;Minor, iBeacon UUID und Broadcast Interval einstellen. Die Parameteren sollte wie daoben die Beschreibung für iOS Platform identisch sein.</p>
+<p><img alt="" src="../BeaconSetup/realkitAndroid/basiceinstellung.png" /></p>
+<p>Major &amp; Minor Einstellung</p>
+<p><img alt="" src="../BeaconSetup/realkitAndroid/majorminoreinstellung.png" /></p>
+<p>UUID Einstellung</p>
+<p><img alt="" src="../BeaconSetup/realkitAndroid/uuideinstellung.png" /></p>
+<p>Broadcast Interval Einstellung</p>
+<p><img alt="" src="../BeaconSetup/realkitAndroid/broadcastinterval.png" /></p>
+<h3 id="schritt-5-erweitere-einstellungen_1">Schritt 5: Erweitere Einstellungen</h3>
+<p>In erweitere Einstellungen soll man für eine neue Beacon nur "Device Name", "Broadcastleistung" einstellen. Alle andere Artikel bleiben wie es war. Die ganzen Parameter Einstellung Werte kann man aber in Schritt 5 für iOS Platform ausfinden.</p>
+<p>Am Ende soll man wieder "Reboot Device" Klicken. Nach der Reboot, alle eingestellte Wert würde erst gültig sein.</p>
+<p>P.s. Das Detail von Deploy Modus bitte sehen Sie die Beschreibung in der Block für iOS Platform Einstellung.</p>
+<p><img alt="" src="../BeaconSetup/realkitAndroid/erweitereinstellung.png" /></p>
+<hr />
+<h2 id="mit-pluslabbeacon-android">Mit PluslabBeacon (android)</h2>
+<p>Es gibt keine grundsatzlich Bedienung-Unterschied zwischen PluslabBeacon und Realkit. Das Workflow ist immer:</p>
+<ol>
+<li>Gewünschte Gerät auswählen</li>
+<li>Unterschiedliche Parameter einstellen</li>
+<li>Reboot das Gerät</li>
+</ol>
+<p>P.S. : Die Einstellungsmöglichkeiten von PluslabBeacon ist eingeschrankt, aber es reicht für alle Einstellungen von diesem Projekt aus. Ich (Su Gao) hat mit diesem App 83 iBeacons problemlos eingestellt. Die Android min. unterstützte Version von dieser App is Android 4.3 (API:18).</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../deploy/" class="btn btn-neutral float-right" title="How To Deploy">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../data/" class="btn btn-neutral" title="Data"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../data/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../deploy/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>

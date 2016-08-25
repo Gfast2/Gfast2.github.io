@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <title>Beacon Scan&Sort - Francke AudioGuide-v2 Docs</title>
+  
+
+  <link rel="shortcut icon" href="../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Beacon Scan&Sort";
+    var mkdocs_page_input_path = "BeaconScan&Sort.md";
+    var mkdocs_page_url = "/BeaconScan&Sort/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script>
+  <script src="../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Francke AudioGuide-v2 Docs</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="..">Home</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../app/">App</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../data/">Data</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../BeaconSetup/">Beacon Setup</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../deploy/">How To Deploy</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../how_to_docs/">How To Docs</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Beacon Scan&Sort</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#beacon-scansort">Beacon Scan&amp;Sort</a></li>
+                
+                    <li><a class="toctree-l4" href="#visualisierung">Visualisierung</a></li>
+                
+            
+            </ul>
+        
+    </li>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Francke AudioGuide-v2 Docs</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Beacon Scan&Sort</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h2 id="beacon-scansort">Beacon Scan&amp;Sort</h2>
+<p><strong>Beacon Scan&amp;Sort</strong> App kann alle available iBeacon Gerät in der Nähr nach dem Signal Stärke auflisten und gegen die zusätzliche Info aus <code>beacon.json</code> eine Beacon Visualisierung darstellen.</p>
+<hr />
+<h3 id="visualisierung">Visualisierung</h3>
+<p><strong><em>Nearst</em></strong>: Die aktuell am nächten gelegenden Beacon. Hier is beacon „10:7“.</p>
+<p><strong><em>Locked</em></strong>: Die aktuell „Locked“ Beacon. Das ist das Beacon als event schon getriggert und noch nicht frei gelassene Beacon. Hier is beacon „30:3“.</p>
+<p><strong><em>Info</em></strong>: Es beschreibt die lock zustand. Es könnt mehrere Möglichkeiten sein.</p>
+<ul>
+<li><strong><em>entered: big x:y</em></strong> : innerhalb von der großen Kreis des Beacons.</li>
+<li><strong><em>entered: small x:y</em></strong> : innerhalb von der kleinen Kreis des Beacons. (Es bedeutet, diese Beacon getriggeret ist)</li>
+<li><strong><em>free lock: big</em></strong> : Die Besucher hat die große Kreis des Beacons verlassen. (Es bedeutet, die lock ist wieder frei gelassen)</li>
+<li><strong><em>free lock: small</em></strong> : Die Besucher hat die klein Kreis des Beacons verlassen. (Es bedeutet, die lock ist noch nicht freigelassen)</li>
+<li><strong><em>direct nearst: x:y</em></strong> : Trotzdem hat die Besucher noch nicht die Kreisen (egal ob es klein oder groß) von andere Beacon verlassen. Die „absolute trigger Kreis“ (Attribute Name: <code>triggerDistanceX</code>) von dem am nächsten gelegenen Beacon ist eingetreten. Und das Lock wird direct zu dem am nächsten gelegenen Beacon übergeben.</li>
+</ul>
+<p><strong><em>Grüne &amp; Rot Kreis</em></strong></p>
+<ul>
+<li><strong><em>Grüne Kreis</em></strong> : Wenn irgend welche Beacon hat das Lock, würde die grüne Kreis grüne sein, wenn nei, die Farbe ist violet. Es ist auch die klein Kreis von diesem Beacon. (Hier ist Beacon 30:3, „-61“ ist der Radius)</li>
+<li><strong><em>Rot Kreis</em></strong> : Die Puffer Gebiet zwischen kleine und große Kreis. die außere Radius ist die große Kreis von diesem Beacon. (Hier ist Beacon 30:3, „-70“ ist der Radius)</li>
+<li><strong><em>Zeiger</em></strong> : Es visualisiert die gelesene und geglättete rssi Wert von diesem Beacon. (Hier ist Beacon 30:3, „-68.33“ ist der gelesene Wert)</li>
+</ul>
+<p><img alt="" src="../beaconScan&amp;Sort/beaconScan&amp;Sort.jpg" /></p>
+<p><strong><em>Start &amp; Stop Taste</em></strong></p>
+<ul>
+<li><strong><em>Start Taste</em></strong> : Start Beacon Scanning.</li>
+<li><strong><em>Stop Taste</em></strong> : Stop Beacon Scanning.</li>
+</ul>
+<p><strong><em>Beacon Liste</em></strong></p>
+<p>Es würde alle available Beacons in der Nähr nach RSSI werte von große nach klein aufgelistet.</p>
+<p><img alt="" src="../beaconScan&amp;Sort/beaconScan&amp;Sort2.jpg" /></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="../how_to_docs/" class="btn btn-neutral" title="How To Docs"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../how_to_docs/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+    </span>
+</div>
+
+</body>
+</html>
