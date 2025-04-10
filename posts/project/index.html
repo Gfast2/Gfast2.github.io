@@ -1,0 +1,136 @@
+<!DOCTYPE html><!-- <meta charset="utf-8" />
+<h1>{frontmatter.title}</h1>
+<p>Written by {frontmatter.author}</p>
+<p>Published on: {frontmatter.pubDate.toString().slice(0,10)}</p>
+<slot /> --><html lang="en"> <head><meta charset="utf-8"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><meta name="viewport" content="width=device-width"><meta name="generator" content="Astro v5.5.2"><title>Projects</title><style>a[data-astro-cid-5grsw2hi]{color:#00539f}.tags[data-astro-cid-5grsw2hi]{display:flex;flex-wrap:wrap}.tag[data-astro-cid-5grsw2hi]{margin:.25em;border:dotted 1px #a1a1a1;border-radius:.5em;padding:.5em 1em;font-size:1.15em;background-color:#f8fcfd}
+#themeToggle[data-astro-cid-oemx5le4]{border:0;background:none}.sun[data-astro-cid-oemx5le4]{fill:#000}.moon[data-astro-cid-oemx5le4],.dark .sun[data-astro-cid-oemx5le4]{fill:transparent}.dark .moon[data-astro-cid-oemx5le4]{fill:#fff}a[data-astro-cid-yxtifmrq]{padding:.5rem 1rem;color:#fff;background-color:#4c1d95;text-decoration:none}footer[data-astro-cid-sz7xmlte]{display:flex;gap:1rem;margin-top:2rem}html{background-color:#f1f5f9;font-family:sans-serif}body{margin:0 auto;width:100%;max-width:80ch;padding:1rem;line-height:1.5}*{box-sizing:border-box}h1{margin:1rem 0;font-size:2.5rem}.nav-links{width:100%;top:5rem;left:48px;background-color:#ff9776;display:none;margin:0}.nav-links a{display:block;text-align:center;padding:10px 0;text-decoration:none;font-size:1.2rem;font-weight:700;text-transform:uppercase}.nav-links a:hover,.nav-links a:focus{background-color:#ff9776}.expanded{display:unset}@media screen and (min-width: 636px){.nav-links{margin-left:5em;display:block;position:static;width:auto;background:none}.nav-links a{display:inline-block;padding:15px 20px}.hamburger{display:none}}.hamburger{padding-right:20px;cursor:pointer}.hamburger .line{display:block;width:40px;height:5px;margin-bottom:10px;background-color:#ff9776}html.dark{background-color:#0d0950;color:#fff}.dark .nav-links a{color:#fff}
+</style></head> <body> <header> <nav> <div class="hamburger"> <span class="line"></span> <span class="line"></span> <span class="line"></span> </div> <button id="themeToggle" data-astro-cid-oemx5le4> <svg width="30px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-astro-cid-oemx5le4> <path class="sun" fill-rule="evenodd" d="M12 17.5a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zm0 1.5a7 7 0 1 0 0-14 7 7 0 0 0 0 14zm12-7a.8.8 0 0 1-.8.8h-2.4a.8.8 0 0 1 0-1.6h2.4a.8.8 0 0 1 .8.8zM4 12a.8.8 0 0 1-.8.8H.8a.8.8 0 0 1 0-1.6h2.5a.8.8 0 0 1 .8.8zm16.5-8.5a.8.8 0 0 1 0 1l-1.8 1.8a.8.8 0 0 1-1-1l1.7-1.8a.8.8 0 0 1 1 0zM6.3 17.7a.8.8 0 0 1 0 1l-1.7 1.8a.8.8 0 1 1-1-1l1.7-1.8a.8.8 0 0 1 1 0zM12 0a.8.8 0 0 1 .8.8v2.5a.8.8 0 0 1-1.6 0V.8A.8.8 0 0 1 12 0zm0 20a.8.8 0 0 1 .8.8v2.4a.8.8 0 0 1-1.6 0v-2.4a.8.8 0 0 1 .8-.8zM3.5 3.5a.8.8 0 0 1 1 0l1.8 1.8a.8.8 0 1 1-1 1L3.5 4.6a.8.8 0 0 1 0-1zm14.2 14.2a.8.8 0 0 1 1 0l1.8 1.7a.8.8 0 0 1-1 1l-1.8-1.7a.8.8 0 0 1 0-1z" data-astro-cid-oemx5le4></path> <path class="moon" fill-rule="evenodd" d="M16.5 6A10.5 10.5 0 0 1 4.7 16.4 8.5 8.5 0 1 0 16.4 4.7l.1 1.3zm-1.7-2a9 9 0 0 1 .2 2 9 9 0 0 1-11 8.8 9.4 9.4 0 0 1-.8-.3c-.4 0-.8.3-.7.7a10 10 0 0 0 .3.8 10 10 0 0 0 9.2 6 10 10 0 0 0 4-19.2 9.7 9.7 0 0 0-.9-.3c-.3-.1-.7.3-.6.7a9 9 0 0 1 .3.8z" data-astro-cid-oemx5le4></path> </svg> </button>  <script>
+  const theme = (() => {
+    const localStorageTheme = localStorage?.getItem("theme") ?? '';
+    if (['dark', 'light'].includes(localStorageTheme)) {
+      return localStorageTheme;
+    }
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      return 'dark';
+    }
+      return 'light';
+  })();
+
+  if (theme === 'light') {
+    document.documentElement.classList.remove('dark');
+  } else {
+    document.documentElement.classList.add('dark');
+  }
+
+  window.localStorage.setItem('theme', theme);
+
+  const handleToggleClick = () => {
+    const element = document.documentElement;
+    element.classList.toggle("dark");
+
+    const isDark = element.classList.contains("dark");
+    localStorage.setItem("theme", isDark ? "dark" : "light");
+  }
+
+  document.getElementById("themeToggle")?.addEventListener("click", handleToggleClick);
+</script> <div class="nav-links"> <a href="/">Home</a> <a href="/about/">About</a> <a href="/blog/">Blog</a> <a href="/tags/">Tags</a> </div> </nav> </header> <h1>Projects</h1>  <p data-astro-cid-5grsw2hi>2022-08-08</p> <p data-astro-cid-5grsw2hi><em data-astro-cid-5grsw2hi>This post will show up on its own!</em></p> <p data-astro-cid-5grsw2hi>Written by: Astro Learner</p> <img src="https://docs.astro.build/default-og-image.png" width="300" alt="The word astro against an illustration of planets and stars." data-astro-cid-5grsw2hi> <div class="tags" data-astro-cid-5grsw2hi> <p class="tag" data-astro-cid-5grsw2hi><a href="/tags/astro" data-astro-cid-5grsw2hi>astro</a></p><p class="tag" data-astro-cid-5grsw2hi><a href="/tags/successes" data-astro-cid-5grsw2hi>successes</a></p> </div> <h3 id="woodtrack">Woodtrack</h3>
+<iframe src="https://www.flickr.com/photos/gfast2/17367027419/in/set-72157652673135961/player/" width="500" height="332" frameborder="0" allowfullscreen webkitallowfullscreen="" mozallowfullscreen="" oallowfullscreen="" msallowfullscreen=""></iframe>
+<hr>
+In 2015 I got a very cool job. My Prof. Anette Scholz have a Idea to build a Maschine do real time visualization for exhibition "Burg100 Professor Ausstellung" (100th Anniversary of Art school Burg Giebichenstein, Professor exhibition). I take part in it and finished the mechanical and some hardware level software development.
+A microphone is hanged in the big hall. It "hear" the noise of the room. And then every ten minute all the "heared" noise will be translate into a hole, which is drilled on a stem by this machine. Then lauder the hall is, the deeper the drilled hole will be. In the day time, there is a lot happening in the hall, so there would be many deep holes on the day side of the stem. And on the night side of the stem, there is nearly nothing at all.
+<hr>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Bc7uEAMcMAM" frameborder="0" allowfullscreen></iframe>
+<hr>
+<h3 id="guang">Guang</h3>
+<p><a data-flickr-embed="true" href="https://www.flickr.com/photos/gfast2/albums/72157650425124124" title="2015-Guang"><img src="https://farm9.staticflickr.com/8802/17582827706_b49b9ca6bc.jpg" width="500" height="375" alt="2015-Guang"></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script></p>
+<hr>
+The sun radiate a huge number of energy in form of light and heat to the universe. Each day it goes from low to high, from east to south on earth. It's position and color shows the time of the day, It's track indicate the seasons of the year. According to researches, Our eyes have a specific type of cell which can only sense the brightness of the lights. And meanwhile they have huge impact to our biological clock. That means, the light around us is telling the time without our consciousness.
+How important it is, the light around us. How interesting and meaningful it would be, if we can make artificial lights as good as the light delivered by the sun directly. Because our modern life let us living even longer under artificial light then under the sunlight.
+The characteristics of sunlight are countless. But there are three most important characters: The brightness, temperature and position of the lights. The development for the first two requirements are easy to build with LED technology. The third one is not. Out of about seven different ways to let things to move in room. I decided to use a very similar way like Delta 3D printer to do the job. After thousands of ours with hammer, computer, drill, solder iron and much more. I finished this prototype. It works fine, but as the most early stage prototype, it addressed also a whole bunch of problems. Which I'd in the second prototype to solve.
+<hr>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/XFOCDHJnn8M" frameborder="0" allowfullscreen></iframe>
+<hr>
+<h5>Resources</h5>
+<a href="http://localhost/wordpress/guang/2-thesis_maarbeit_sugao/" target="_blank" rel="attachment wp-att-243">Master Thesis (30.9MB)</a>
+<a href="https://github.com/Gfast2/ABArbeit" target="_blank">Firmware</a>
+<h3 id="smaker">Smaker</h3>
+<iframe src="https://www.flickr.com/photos/gfast2/15930381640/in/set-72157649546182590/player/" width="500" height="366" frameborder="0" allowfullscreen webkitallowfullscreen="" mozallowfullscreen="" oallowfullscreen="" msallowfullscreen=""></iframe>
+<hr>
+Smaker is a robot that can be controled by a smartphone or just a computer to automatically take photos which can be used to produce motional Time-lapse sequences later. since each step of the photo sequence should be somehow steady and average from the context steps, I put 4 steppers in this machine to let she have a smooth\average and flexible motion possibility. Meantime I developed a small APP in processing to translate the OSC signal from smartphone into the self-developed wireless language that SMaker can read. In Summary, I’ve used arduino, processing, TouchOSC, Inventor(to design the structure), developed a robot that controlled by smartphone or computer which can take Time-lapse films in motion. the final effect is actually perfect, all of the expected functions worked but due to the bad workinged axises, the Time-lapse from she looks still not that good like the pieces from other machines.
+<hr>
+<h6>SMaker in action</h6>
+<iframe width="560" height="315" src="//www.youtube.com/embed/kcgGLRYdvZU" frameborder="10" allowfullscreen></iframe>
+<hr>
+<h6>Video made by SMaker</h6>
+<iframe width="560" height="315" src="//www.youtube.com/embed/l4goZB2-hWc" frameborder="10" allowfullscreen></iframe>
+<hr>
+<h6>Links where I got the very important technical tipps:</h6>
+<ul>
+<li><a href="http://forum.arduino.cc/index.php/topic,86744.msg650102.html" target="_blank">the right message formate for Wireless Xbee</a></li>
+<li><a href="http://hexler.net/docs/touchosc" target="_blank">Introduction of TouchOSC</a></li>
+<li><a href="https://www.sparkfun.com/tutorials/152" target="_blank">Controlling an Arduino with an iPhone(through TouchOSC)</a></li>
+<li><a href="http://ww1.projectallusion.com" target="_blank">Other iPhone control Arduino example(through TouchOSC)</a></li>
+<li><a href="http://danthompsonsblog.blogspot.de/2010/05/easydriver-42-tutorial.html" target="_blank">Step Motor driver</a></li>
+</ul>
+<h6>Important parts I've used in the project</h6>
+<ul>
+<li><a href="http://http://www.watterott.com/de/Quadstepper-Motor-Driver-Board" target="_blank">Quadstepper Motor Driver Board</a></li>
+<li><a href="http://www.watterott.com/de/XBee-2mW-Series-25-Wire-Antenna" target="_blank">XBee</a></li>
+<li><a href="http://www.watterott.com/de/Arduino-Uno" target="_blank">Arduino Board</a></li>
+<li><a href="http://www.watterott.com/de/Schrittmotor-incl-Anschlusskabel" target="_blank">Step Motor</a></li>
+<li><a href="http://www.watterott.com/de/Shield-Wireless-Shield" target="_blank">Wireless Proto Schield</a></li>
+<li><a href="http://www.watterott.com/de/XBee-Explorer-USB" target="_blank">XBee Explorer USB</a></li>
+<li><a href="http://www.maedler.de/product/1643/1619/705/standard-schnecken-und-schneckenraeder-eingaengig-rechts" target="_blank">Worm gear</a></li>
+<li><a href="http://www.reichelt.de/Blei-Vlies-Akkus-12V-Kung-Long/WP-7-2-12/3/index.html?;ACTION=3;LA=2;ARTICLE=44420;GROUPID=4232;artnr=WP+7%2C2-12;SID=11T8u7Un8AAAIAACz@gZM6b0bf5a28ff4bc1c9645ce9f456f81ff" target="_blank">Batterie</a></li>
+</ul>
+<h3 id="waageschalspiel">Waageschalspiel</h3>
+<iframe src="https://www.flickr.com/photos/gfast2/16093131912/in/set-72157647578129334/player/" width="500" height="332" frameborder="0" allowfullscreen webkitallowfullscreen="" mozallowfullscreen="" oallowfullscreen="" msallowfullscreen=""></iframe>
+<hr>
+Early 2013 I got a job to help <a href="http://www.hanke-schwandt.de" target="_blank">Tom</a> develop a Waage (in english: Balance), which will be build in the porcelain museum <a href="http://www.leuchtenburg.de/de/" target="_blank">Leuchtenburg</a>. This Waage have four plate, can weight four different materials at the same time. This four different materials (actually one of the plates should be always empty to keep the Waage balanced) are the material four Porcelain making. They should following the proportion 2:1:1 be mixed together in order to be burned later in to porcelain. Through this machine, the visiter will experience how hard can that be to reinvent porcelain in europe, even if the inventor <a href="http://en.wikipedia.org/wiki/Johann_Friedrich_Böttger" target="_blank">Böttger</a> has known the right material to make porcelain, it will still pay a lot of work to get the right proportion of them.
+For each Waage, I build more than 12 MCU in it to control step motors, get the weight of each plate, play music file, control light effects and so on.
+<hr>
+<iframe src="//www.youtube.com/embed/Cj2ocAeaP94" width="560" height="315" frameborder="0" allowfullscreen></iframe>
+<hr>
+<iframe width="560" height="315" src="//www.youtube.com/embed/ypmzlESBByk" frameborder="0" allowfullscreen></iframe>
+<h3 id="panoscope">Panoscope</h3>
+<iframe src="https://www.flickr.com/photos/gfast2/15922451699/in/set-72157649927249482/player/" width="500" height="333" frameborder="0" allowfullscreen webkitallowfullscreen="" mozallowfullscreen="" oallowfullscreen="" msallowfullscreen=""></iframe>
+<hr>
+Panoscope is a installation for City Marketing Hildesheim. With the help of a 270 grade display,four soundbox,a virtual city map and a intuitive user interface, people can virtually "Walk" around in the city and visit the most interesting places. Each scene has its own story, and the story is spoke by a local citizen who lived there for many years.
+<hr>
+<iframe width="560" height="315" src="//www.youtube.com/embed/cq_Yf1X5Jro" frameborder="0" allowfullscreen></iframe>
+<h3 id="drawbot">Drawbot</h3>
+<iframe src="https://www.flickr.com/photos/gfast2/12483257845/in/set-72157640893740754/player/" width="500" height="332" frameborder="0" allowfullscreen webkitallowfullscreen="" mozallowfullscreen="" oallowfullscreen="" msallowfullscreen=""></iframe>
+<p>Inspired by Dan’s Project <a href="http://https://www.marginallyclever.com/shop/drawing-robots" title="Makelangelo" target="_blank">Makelangelo</a>. I decide to build my own drawbot, in order to learn more about the detail of step motor control technology.</p>
+<p><strong>Here is the end product on working:</strong></p>
+<iframe width="560" height="315" src="//www.youtube.com/embed/Jv1L2RTBfpA" frameborder="0" allowfullscreen></iframe>
+<p><strong>And this is a small tutorial that I made for reviewing the step motor controller.</strong></p>
+<iframe width="560" height="315" src="//www.youtube.com/embed/amssmvH63M0" frameborder="0" allowfullscreen></iframe>
+<p>Code, hardware design, and tipps can be found <a href="https://github.com/Gfast2/Yifei" title="Github riop" target="_blank">here</a>.
+Pictures can be found <a href="https://flic.kr/s/aHsjSnxJiG" title="Flickr photos" target="_blank">here</a></p>
+<h3 id="delta-3d-printer">Delta 3D printer</h3>
+<iframe src="https://www.flickr.com/photos/gfast2/14081383153/in/set-72157644422758324/player/" width="500" height="332" frameborder="0" allowfullscreen webkitallowfullscreen="" mozallowfullscreen="" oallowfullscreen="" msallowfullscreen=""></iframe>
+<hr>
+In 2014 I decided to build my own 3d printer. The usability of a 3D printer is actually not the most attractive bonus of this project, but how to control more than one cheap and small step motor in such professional way.
+<hr>
+<iframe width="560" height="315" src="//www.youtube.com/embed/CKQsA6laFz8" frameborder="0" allowfullscreen></iframe>
+<hr>
+<h3 id="schmerzübertrager">Schmerzübertrager</h3>
+<iframe src="https://www.flickr.com/photos/gfast2/16093205822/in/set-72157649500325420/player/" width="500" height="332" frameborder="0" allowfullscreen webkitallowfullscreen="" mozallowfullscreen="" oallowfullscreen="" msallowfullscreen=""></iframe>
+<hr>
+Schmerzübertrager (in english: pain translater) is a fishing rod, which can simulate the pain of fishes when they are being angled.
+According to the research when angling, fishes do feel pain as you and me. In order to indicate all angler who see this painful process as sport and hobby, I designed Schmerzübertrager. Through check the pull force of fish wire, Schmerzübertrager drivers two vibration motors, a RGB LED and a high voltage circuit (which can through the naked cooper wire mounted on the fishing rod handle give end user a electric shock) to translate the level of the pull force (equal to the pain level of the fish) to the angler, directly when he or she is angling.
+<hr>
+<iframe width="560" height="315" src="//www.youtube.com/embed/cDTsNQyFK_0" frameborder="0" allowfullscreen></iframe>
+<h3 id="glockenspiel">Glockenspiel</h3>
+<iframe src="https://www.flickr.com/photos/gfast2/15515987334/in/set-72157649933324226/player/" width="500" height="363" frameborder="0" allowfullscreen webkitallowfullscreen="" mozallowfullscreen="" oallowfullscreen="" msallowfullscreen=""></iframe>
+<hr>
+Halle have a Glockenspiel (carillon) which is the second biggest carillon in the world. There are 76 bells and weight nearly 55 ton. Everyday the Glockenspiel plays different music pieces hourly by its MIDI controller. Although the Glockenspiel is in the center of the city, only few citizen even know its there.
+In order to let more people know this fantastic instrument, at the very first semester of my multimedia master courses, Professor state this Glockenspiel as topic for the semester project.
+This is the final product - a simulator that let people virtually visit and play with the instrument.
+Final Application and resources of this project can be found in<a href="https://github.com/Gfast2/Glockenspiel" title="Github repo" target="_blank">Github Repo</a>
+<hr>
+<iframe width="560" height="315" src="//www.youtube.com/embed/-BX4ygcRvoA" frameborder="0" allowfullscreen></iframe>
+<h3 id="alias-car-design">Alias Car Design</h3>
+<iframe src="https://www.flickr.com/photos/gfast2/16093227812/in/set-72157649501809828/player/" width="500" height="282" frameborder="0" allowfullscreen webkitallowfullscreen="" mozallowfullscreen="" oallowfullscreen="" msallowfullscreen=""></iframe>
+<hr>
+Here are some outputs from my Autodesk Alias self training in 2012-2013.  <footer data-astro-cid-sz7xmlte> <a href="https://www.twitter.com/astrodotbuild" data-astro-cid-yxtifmrq>twitter</a>  <a href="https://www.github.com/withastro" data-astro-cid-yxtifmrq>github</a>  <a href="https://www.youtube.com/astrodotbuild" data-astro-cid-yxtifmrq>youtube</a>  </footer> <script type="module">document.querySelector(".hamburger").addEventListener("click",()=>{document.querySelector(".nav-links").classList.toggle("expanded")});</script> </body> </html> 
